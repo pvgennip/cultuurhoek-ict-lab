@@ -58,17 +58,20 @@ print(os.environ['GOOGLE_APPLICATION_CREDENTIALS'])
 pir = Button(2)
 
 while True:
-        if pir.is_pressed:
-                print "taking photo..."
-                subprocess.call("./photo.sh")
-                print "analyzing..."
-                list_of_objects = detect_labels('photo.jpg')
-                haiku = handle_object_list(list_of_objects)
-                print haiku
-                read_text(haiku)
-        else:
-                print("No movement")
-        sleep(1)
+    print "waiting for motion..."
+    pir.wait_for_press()
+    print "taking photo..."
+    subprocess.call("./photo.sh")
+    print "analyzing..."
+    list_of_objects = detect_labels('photo.jpg')
+    haiku = handle_object_list(list_of_objects)
+    print "a new moment has been captured:"
+    print ""
+    print haiku
+    print ""
+    read_text(haiku)
+    print "waiting 20 sec before checking motion again..."
+    sleep(20)
 
 
 

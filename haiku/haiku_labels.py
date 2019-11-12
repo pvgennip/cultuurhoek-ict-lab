@@ -1,6 +1,10 @@
 from haiku_text_classes import InputHandler, HaikuTextGenerator
 from gpiozero import Button
 from time import sleep
+from google.cloud import vision
+from googletrans import Translator
+import os 
+import io
 import subprocess
 import requests
 
@@ -15,8 +19,6 @@ def read_text(data):
 
 def detect_objects(path):
     """Detects labels in the file."""
-    from google.cloud import vision
-    import io
     client = vision.ImageAnnotatorClient()
 
     with io.open('photo.jpg', 'rb') as image_file:
@@ -33,23 +35,20 @@ def detect_objects(path):
 
 def detect_labels(path):
     """Detects labels in the file."""
-    from google.cloud import vision
-    import io
     client = vision.ImageAnnotatorClient()
 
     with io.open('photo.jpg', 'rb') as image_file:
         content = image_file.read()
 
     image = vision.types.Image(content=content)
-    response = client.object_localization(image=image)
-    objects = response.localized_object_annotations
+    response = client.label_detection(image=image)
+    objects = response.label_annotations
 
-    labelList = [translate_label(object_info.name).lower() for object_info in objects]
+    labelList = [translate_label(object_info.description).lower() for object_info in objects]
     return labelList
 
 
 def translate_label(label):
-    from googletrans import Translator
     translator = Translator(service_urls=[
       'translate.google.com',
       'translate.google.nl',
@@ -65,7 +64,6 @@ def handle_object_list(object_list):
     haiku = haiku_generator.compose_haiku()
     return haiku
 
-import os 
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="/home/pi/haiku/gvision-key.json"
 #os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="/home/happy/Downloads/service_account.json"
 print(os.environ['GOOGLE_APPLICATION_CREDENTIALS'])

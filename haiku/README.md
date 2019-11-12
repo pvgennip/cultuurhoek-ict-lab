@@ -22,6 +22,11 @@ Requirements:
 
 * Python
 * Google API account
+* Image Magick
+
+## Image Magick
+```sudo apt-get install imagemagick```
+
 
 ## Save GOOGLE API key
 
@@ -30,11 +35,14 @@ Add API key to file ```gvision-key.json```
 ## Additional Python libraries 
 
 * gpio: ```pip install gpiozero```
-* pandas: ```pip install pandas```
+* pandas: ```sudo apt-get install python-pandas```
 * Google: 
- * ```pip install google.cloud```
- * ```pip install googletrans```
+ * ```pip install google-cloud-vision```
+ * ```pip install google-cloud-translate```
 
  # Run
+```cd haiku```
+```python haiku.py```
 
- ```python haiku.py```
+## Check log at
+```tail -f log/rclocal.log```

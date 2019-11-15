@@ -1,10 +1,6 @@
 from haiku_text_classes import InputHandler, HaikuTextGenerator
 from gpiozero import Button
 from time import sleep
-from google.cloud import vision
-from googletrans import Translator
-import os 
-import io
 import subprocess
 import requests
 
@@ -19,6 +15,8 @@ def read_text(data):
 
 def detect_objects(path):
     """Detects labels in the file."""
+    from google.cloud import vision
+    import io
     client = vision.ImageAnnotatorClient()
 
     with io.open('photo.jpg', 'rb') as image_file:
@@ -35,6 +33,8 @@ def detect_objects(path):
 
 def detect_labels(path):
     """Detects labels in the file."""
+    from google.cloud import vision
+    import io
     client = vision.ImageAnnotatorClient()
 
     with io.open('photo.jpg', 'rb') as image_file:
@@ -49,6 +49,7 @@ def detect_labels(path):
 
 
 def translate_label(label):
+    from googletrans import Translator
     translator = Translator(service_urls=[
       'translate.google.com',
       'translate.google.nl',
@@ -64,6 +65,7 @@ def handle_object_list(object_list):
     haiku = haiku_generator.compose_haiku()
     return haiku
 
+import os 
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="/home/pi/haiku/gvision-key.json"
 #os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="/home/happy/Downloads/service_account.json"
 print(os.environ['GOOGLE_APPLICATION_CREDENTIALS'])
@@ -71,25 +73,25 @@ print(os.environ['GOOGLE_APPLICATION_CREDENTIALS'])
 pir = Button(2)
 
 while True:
-    print "waiting for motion..."
-    pir.wait_for_press()
-    print "taking photo..."
-    subprocess.call("./photo.sh")
-    print "analyzing..."
-    list_of_text = detect_labels('photo.jpg')
-    if (len(list_of_text) > 0):
-        print "objects detected: "
-        print ' '.join(list_of_text)
-        haiku = handle_object_list(list_of_text)
-        print "a new moment has been captured:"
-        print ""
-        print haiku
-        print ""
-        read_text(haiku)
-        print "waiting 20 sec before checking motion again..."
-        sleep(20)
+    if pir.is_pressed:
+        print "taking photo..."
+        subprocess.call("./photo.sh")
+        print "analyzing..."
+        list_of_text = detect_labels('photo.jpg')
+        if (len(list_of_text) > 0):
+            print "objects detected: "
+            print ' '.join(list_of_text)
+            haiku = handle_object_list(list_of_text)
+            print "a new moment has been captured:"
+            print ""
+            print haiku
+            print ""
+            read_text(haiku)
+            print "waiting 20 sec before checking motion again..."
+            sleep(20)
+        else:
+            print "no objects detected, checking motion again..."
     else:
-        print "no objects detected, checking motion again..."
-
-
+        print("No movement")
+        sleep(1)
 

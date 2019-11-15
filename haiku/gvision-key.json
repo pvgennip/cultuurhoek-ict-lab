@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "hopeful-summer-250709",
+  "private_key_id": "283fe349a7651abb8186fc10d63cbffb1cf29fbe",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCx0jrq7k8/YMeB\nL+o3TJxjZzn8fqRIBvBrpR8ChOoTZCdndpZqx1ClESa5hr6QEH5Fj5X0HvM2vry2\nS2JS7iMVCOB/xZxFgqe1Aw3GS0gy7kzDshhCmE+Yj6Rbvl8wwbqr+hXdZ+sZSNmD\nV8Mr0CAusPgRYiXCpfYOELiduxWFKyA0UoHuSgSRalSN/0daGCyHb5CI73ZiQGCx\nSNGfqk3JUxDEfF6xZ4IwRj+lTnkSFNtVeKDKoonQzvwRGcR+Ip+nUIsdmv2SXQSM\nCFkeqZozc+G84s4npjCbmPj4Cy5zrgDUKtNYfs6F930xMHxH5eGFCd2ldVxMn9lw\nyeOdLAwtAgMBAAECggEAE+Jm3Tt92B/53zvc7IcgG8uAw/fjZfyEqPzjbVQwmq+B\n6oNryY/1OCglVOy45YI6pIusYIqPduk4UAg4+/4OJT2DYTZXRbyZBVhMk4Z6kdts\n8Rs6tEO07uHtJqcwnNKlDbMe+82xj/fB/vpy5DTXTHFUpBj+EPie/a6n/ldbzjK2\n7eNF5/1+STNRhtXNCMUFj1PcoiaGZVvXbME+nXd0aBQOc5BxyakWXEAqvI33sHrY\nFpXkB7aSWrKlU9eiqByOnKwfjekF6P7raxfM3V1akbn4M/w/RfJ5t1XKRcOxjOdD\nmouxWy7R1VvoXt59HFdje2YFkiLVF5Zebic+eiR7TwKBgQDqnr1wmM9osHv9f0JM\n8gdDwpx52oWjnDvuM72QAAL9VJvv+QdDCJcmroM1VJr1ZFPiTJJ0hGfFaI7Jeckb\nHl1/WdJwvHHLcIYJksuS61m39H7tui62b1f6dGbfjwWhqLNQytTGreop2l/V70WV\ngU77iBJNMiB8jBmQBNGUlz4J4wKBgQDCBnnPdc/nSlFLeOKsqaG1dXYnL7EMXPfc\nnF2ax847q49f01aZmn7/9Jmp5RXxzdZ4m/tElV1deGgouSFzbieTFOTz5pBfxTSr\n2hZ4/qTtpgFWzNcEB2aNsxk9xc10mVjhwGM0cN3cQi0jJuuDc8PzE+Hj0/UHoT6E\npfxxjrmurwKBgB/zgD7+QHi0WB5cn03VRBIBRcf+b2aplyvIVg9vQPj49ceHdWq2\nl8cHywyPOg8jG51c6jD9+xfSNmfPswiDaR43wEXkE+ctqsNQ/3JBpNU9ca+0RDpK\nDYQpJ/1X/99VFx5wkOuBsbsDZzu+Ow6yLmxoyn1Cz1PGzJBlZ5lBw4wbAoGAOBiv\nNzAUwAZYor18q/cPbetcEdBUHAL1Fq+O0KVcFxxvA4GS1C468b3Cf8BgK90bWRuf\n9iBJMjERzFRaO4lpn7i2yV2r+ESICfev76OQA7WvRW1L7TpGiElzzsxVrpR3gi2h\ngRPw0THA4xzpksPxr2HcOYaanW4dKTTkW+CsBrkCgYAahTB8QOBDKs2EEoVV4tom\nP43xjArHfmjLDMfTtqr3nRHChXYLp0MnLyfr6su7524bu6Bet0dxsKbJk21KORZV\nI53QpgiHE12Iuy7EpGtznZn1XrB7/SWDs/BvpFBJt7YFkWnucTjOuRsbpQoJLlHs\n3WSwsa1b0/U9aYNB+ib3YA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "ict-lab-haiku@hopeful-summer-250709.iam.gserviceaccount.com",
+  "client_id": "106590956682107006311",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/ict-lab-haiku%40hopeful-summer-250709.iam.gserviceaccount.com"
+}

@@ -9,9 +9,9 @@ class InputHandler:
                  "bvnw_3_;znw_2_;<\n>bvnw_2;znw_3_;ww_2_;<\n>telwoord_1_;bvnw_2;znw_2_mv",
                  "bezvnw_1_;znw_2_ev;<en>persvnw_1_;<\ntijdens de>znw_3_ev;ww_1_ev;persvnw_1;<\neen>quantifier_2_;znw_2_",
                  "<een>quantifier_1_;znw_3_mv;<\n>vz_1_;<de>znw_1_ev;<waar>bwb_3_;telwoord_1_mv;<\n>znw_2_mv;ww_2_mv",
-                 "vz_1_;<een>bvnw_2_;znw_1_ev;<\n>ww_1_ev;<een>bvnw_3_;znw_1_;bwb_1_;<\nte>ww_3_mv",
+                 #"vz_1_;<een>bvnw_2_;znw_1_ev;<\n>ww_1_ev;<een>bvnw_3_;znw_1_;bwb_1_;<\nte>ww_3_mv",
                  "<nu>persvnw_1_ev;bvnw_1_;ww_1_ev;<toch\n maar even>ww_3_mv;<\ntot het>bvnw_2_;ww_1_ev"]
-    woordenlijst_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTGcnOl_KxaYZhQhv8hzb7Ho28NUh8p0BjdSA0cvqO2brdqzbmICLg406okO7je2TaT0qiQevCyPMoM/pub?gid=908729767&single=true&output=csv"
+    woordenlijst_url = "https://docs.google.com/spreadsheets/d/122wcAHpC0Ghmg2d7SSssP2vTmUR0_21gpdFOvMAhI0w/export?format=csv&id=122wcAHpC0Ghmg2d7SSssP2vTmUR0_21gpdFOvMAhI0w&gid=908729767"
 
     def __init__(self, input_word_list):
         self.input_word_list = input_word_list
@@ -104,8 +104,9 @@ class InputHandler:
 class HaikuTextGenerator:
     template_word_pattern = '<(.*?[\r?\n]?.*?)>'
 
-    def __init__(self, worddf, template, category_dict):
+    def __init__(self, worddf, template, category_dict, googletts = False):
         self.template = template
+        self.googletts = googletts
         self.word_dataframe = worddf
         self.debug = False
         self.category_dict = category_dict
@@ -121,7 +122,10 @@ class HaikuTextGenerator:
                 if word_to_inject:
                     haiku += ' ' + word_to_inject
             haiku += ' ' + word
-        haiku = haiku.replace('\n', ',')
+        breaktext = '<break time="1.5s"/>'
+        if self.googletts:
+              breaktext = "."
+        haiku = haiku.replace('\n', breaktext)
         return haiku
 
 # Private methods
